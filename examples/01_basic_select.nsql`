@@ -1,0 +1,3 @@
+```sql
+SELECT channel, frequency, tower_id
+FROM network.routes;
