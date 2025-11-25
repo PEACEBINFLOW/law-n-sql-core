@@ -1,0 +1,6 @@
+SELECT device, channel, latency_ms, signal_quality
+FROM network.routes
+WHERE device = '0xA4C1'
+  AND g_layer IN ('4G', '5G')
+  AND latency_ms < 60
+  AND signal_quality >= 0.8;
