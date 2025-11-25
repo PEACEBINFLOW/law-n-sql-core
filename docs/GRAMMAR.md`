@@ -1,0 +1,35 @@
+# N-SQL Prototype Grammar (Core Subset)
+
+This document defines the **minimal N-SQL grammar subset** implemented in `law-n-sql-core`.
+
+## 1. Query Shape
+
+```ebnf
+query           = select_clause, from_clause, [ where_clause ], [ ";" ] ;
+select_clause   = "SELECT", column_list ;
+from_clause     = "FROM", identifier ;
+where_clause    = "WHERE", condition_expr ;
+
+column_list     = "*"
+                | column_name, { ",", column_name } ;
+
+column_name     = identifier ;
+
+condition_expr  = condition_term, { "AND", condition_term } ;
+
+condition_term  = comparison
+                | in_expression ;
+
+comparison      = identifier, comparator, value ;
+
+in_expression   = identifier, "IN", "(", value, { ",", value }, ")" ;
+
+comparator      = "=" | "!=" | "<" | "<=" | ">" | ">=" ;
+
+identifier      = letter, { letter | digit | "_" | "." } ;
+
+value           = string_literal
+                | numeric_literal ;
+
+string_literal  = "'", { any_char_except_quote }, "'" ;
+numeric_literal = digit, { digit | "." } ;
