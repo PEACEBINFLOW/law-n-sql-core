@@ -30,8 +30,9 @@ It’s a **reference core** for Law-N Part 3 and future repos in the Law-N stack
 ### Install (local dev)
 
 ```bash
-git clone https://github.com/YOUR_USER/law-n-sql-core.git
 cd law-n-sql-core
+https://github.com/PEACEBINFLOW/law-n-sql-core/tree/main
+
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -e .
